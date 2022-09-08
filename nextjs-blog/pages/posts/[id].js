@@ -1,9 +1,11 @@
 import Layout from '../../components/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
+
 import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
+import Script from 'next/script';
 
+import { getAllPostIds, getPostData } from '../../lib/posts';
 
 export async function getStaticProps({ params }) {
   // Add the "await" keyword like this:
@@ -15,6 +17,7 @@ export async function getStaticProps({ params }) {
     },
   };
 }
+
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();

@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
+
 import Link from 'next/link';
 import Date from '../components/date';
+
+import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -16,10 +18,14 @@ export async function getStaticProps() {
 
 export default function Home ({ allPostsData }) {
   return (
+    <>
     <Layout home>
-     
+     <Head>
+  <title>Create Next App</title>
+  <link rel="icon" href="/favicon.ico" />
+</Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        <p>What's up y'all! Derek here. I love surfing the waves and surfin' the web! Cowabunga dude!</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
@@ -42,7 +48,7 @@ export default function Home ({ allPostsData }) {
         </ul>
       </section>
     </Layout>
-      
+    </>   
    
   );
 }
